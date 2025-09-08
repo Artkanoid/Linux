@@ -49,3 +49,38 @@ Swap:         8192         1024        7168
 #### 5. **`smem`**
 - Permet de voir la mémoire utilisée par chaque processus, avec partage.
 - Utile pour comprendre qui consomme quoi.
+
+---
+# Personnalisation du terminal
+
+Pour personnaliser ton terminal, tu peux modifier le fichier `.bashrc` ou `.zshrc` selon ton shell. Pour inverser les couleurs de la ligne de commande et afficher le chemin dans ton prompt, ajoute une configuration comme celle-ci :
+
+Cmd
+Description
+
+```bash
+PS1='\[\e[7m\]
+\u@\h: \w\$
+\[\e[0m\] '
+```
+
+Cela affiche l'utilisateur, le nom de l'hôte et le chemin, en inversant les couleurs.
+\[\e[7m\]	Pour inverser les couleurs de la ligne de commande
+Ou	Ou
+\e[32m	change la couleur en vert (code ANSI 32 pour le vert).
+	
+\u@\h: \w\$	Ainsi, un prompt configuré comme \u@\h:\w\$ afficherait quelque chose comme jeremie@machine:/home/jeremie$
+	\u
+	Affiche nom d'utilisateur de l'utilisateur connecté.
+	\h
+	Affiche nom de l'hôte
+	\w
+	Affiche répertoire de travail actuel 
+	(absolu, avec ~ pour représenter le répertoire personnel).
+	\$
+	affiche # si l'utilisateur est root, ou $ si l'utilisateur est non-root.
+	
+	
+\[\e[0m\] 	réinitialise la couleur pour éviter que tout le texte reste vert.
+ Actualise les changements avec `source ~/.bashrc` ou `source ~/.zshrc`.
+<img width="1238" height="626" alt="image" src="https://github.com/user-attachments/assets/39935d89-43d6-4876-b967-f9db0e81e3fe" />
